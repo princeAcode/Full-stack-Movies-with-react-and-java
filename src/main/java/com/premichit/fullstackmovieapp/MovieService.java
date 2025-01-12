@@ -1,21 +1,22 @@
 package com.premichit.fullstackmovieapp;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MovieService {
 
-    private MovieRepository movieRepository;
     @Autowired
-    public MovieService(MovieRepository movieRepository) {
-        System.out.println(movieRepository.findAll());
-        this.movieRepository = movieRepository;
+    private MovieRepository repository;
 
+    public List<Movie> findAllMovies() {
+        return repository.findAll();
     }
-    public List<Movie> getAllMovies() {
-        return movieRepository.findAll();
+    public Optional<Movie> findMovieByImdbId(String imdbId) {
+        return repository.findMovieByImdbId(imdbId);
     }
 }
