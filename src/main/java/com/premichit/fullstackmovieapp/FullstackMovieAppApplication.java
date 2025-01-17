@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
-public class FullstackMovieAppApplication implements CommandLineRunner {
+public class FullstackMovieAppApplication {
 
     @Autowired
     private MovieRepository repository;
@@ -17,8 +17,5 @@ public class FullstackMovieAppApplication implements CommandLineRunner {
         SpringApplication.run(FullstackMovieAppApplication.class, args);
     }
 
-    @Override
-    public void run(String... args) throws Exception {
-        System.out.println("Movies in database: " + repository.findAll());
-    }
+
 }
