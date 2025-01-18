@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
-public class FullstackMovieAppApplication {
+public class FullstackMovieAppApplication implements CommandLineRunner {
 
     @Autowired
     private MovieRepository repository;
@@ -18,4 +18,8 @@ public class FullstackMovieAppApplication {
     }
 
 
+    @Override
+    public void run(String... args) throws Exception {
+        System.out.println(repository.findAll());
+    }
 }
